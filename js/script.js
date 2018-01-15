@@ -32,8 +32,8 @@ function getWeather() {
     type: 'GET',
     dataType: "json",
     success: function(data) {
-      farenheit = data.main.temp;
-      celsius = (farenheit - 32) * .5556;
+      farenheit = Math.round(data.main.temp);
+      celsius = Math.round((farenheit - 32) * .5556);
       let icon = data.weather[0].icon;
       let details = data.weather[0].main + ", "+ data.weather[0].description;
       console.log(icon);
